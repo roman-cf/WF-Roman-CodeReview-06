@@ -22,3 +22,9 @@ function siteBuilder(){
 	$("body").append(`<footer>&copy;</footer>`);
 }
 //---------------------------------------End Site Builder---------------------------------------------------
+
+
+function test(mystring1){
+	$("body").append(`<div>${mystring1}</div>`);
+
+}
