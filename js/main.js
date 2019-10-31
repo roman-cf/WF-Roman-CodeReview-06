@@ -27,8 +27,7 @@ function siteBuilder(){
 //---------------------------------------End Site Builder---------------------------------------------------
 
 
-	$("#maincontent").append(`<div>${blogLocation2.display()} ${blogLocation2.displayR()} </div>`);
-	$("#maincontent").append(`<div>${blogLocation3.display()} ${blogLocation3.displayHTML()}</div>`);
+	$("#maincontent").append(`<div>${blogLocation2.display()} ${blogLocation2.displayAddress()} </div>`);
 	$("#maincontent").append(`<div>${blogLocation4.display()} ${blogLocation4.timeUntilE()}</div>`);
 
 
@@ -63,7 +62,7 @@ function addPlaces(){
 function listLocation(){
 	$("#maincontent").empty();
 	for (item of locationArray){
-		$("#maincontent").append(`<div>${item.display()}</div>`);
+		$("#maincontent").append(`<div><h3>${item.display()}</h3>${item.displayIMG()}${item.displayAddress()}</div>`);
 
 	}
 }

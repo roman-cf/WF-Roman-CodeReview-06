@@ -21,13 +21,13 @@ var MyLocation = /** @class */ (function () {
         this.lPicUrl = lPicUrl;
     }
     MyLocation.prototype.display = function () {
-        return this.lName + " " + this.lCity;
+        return this.lName + " in " + this.lCity;
     };
-    MyLocation.prototype.displayHTML = function () {
-        return "<p>" + this.lName + " some extratext" + this.lZip + "</p>";
+    MyLocation.prototype.displayAddress = function () {
+        return "<p>" + this.lAdress + " in " + this.lZip + "  " + this.lCity + "</p>";
     };
     MyLocation.prototype.displayIMG = function () {
-        return "<img src=\"img/" + this.lPicUrl + "\" alt=\"" + this.lName + "\">";
+        return "<img src=\"img/" + this.lPicUrl + "\" width=\"150px\" alt=\"" + this.lName + "\">";
     };
     return MyLocation;
 }());
@@ -40,7 +40,7 @@ var myRestaurant = /** @class */ (function (_super) {
         _this.rWww = rWww;
         return _this;
     }
-    myRestaurant.prototype.displayR = function () {
+    myRestaurant.prototype.displayContact = function () {
         return this.rPhone + " " + this.rWww;
     };
     return myRestaurant;

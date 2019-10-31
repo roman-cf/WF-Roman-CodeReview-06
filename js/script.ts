@@ -16,14 +16,14 @@ class MyLocation {
 	}
 
 	display(){
-		return this.lName + " " + this.lCity;
+		return this.lName + " in " + this.lCity;
 	}
 
-	displayHTML(){
-		return `<p>`+ this.lName + ` some extratext` + this.lZip + `</p>`;
+	displayAddress(){
+		return `<p>`+ this.lAdress + ` in ` + this.lZip + `  ` + this.lCity + `</p>`;
 	}
 	displayIMG(){
-		return`<img src="img/`+this.lPicUrl+`" alt="`+this.lName+`">`;
+		return`<img src="img/`+this.lPicUrl+`" width="150px" alt="`+this.lName+`">`;
 	}
 
 }
@@ -39,7 +39,7 @@ class myRestaurant extends MyLocation{
 		this.rPhone = rPhone;
 		this.rWww = rWww;
 	}
-	displayR(){
+	displayContact(){
 		return this.rPhone + " " + this.rWww;
 	}
 }
