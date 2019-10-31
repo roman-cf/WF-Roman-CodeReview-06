@@ -12,12 +12,13 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 var MyLocation = /** @class */ (function () {
-    function MyLocation(lId, lName, lCity, lZip, lAdress) {
+    function MyLocation(lId, lName, lCity, lZip, lAdress, lPicUrl) {
         this.lId = lId;
         this.lName = lName;
         this.lCity = lCity;
         this.lZip = lZip;
         this.lAdress = lAdress;
+        this.lPicUrl = lPicUrl;
     }
     MyLocation.prototype.display = function () {
         return this.lName + " " + this.lCity;
@@ -25,26 +26,29 @@ var MyLocation = /** @class */ (function () {
     MyLocation.prototype.displayHTML = function () {
         return "<p>" + this.lName + " some extratext" + this.lZip + "</p>";
     };
+    MyLocation.prototype.displayIMG = function () {
+        return "<img src=\"img/" + this.lPicUrl + "\" alt=\"" + this.lName + "\">";
+    };
     return MyLocation;
 }());
-var Restaurant = /** @class */ (function (_super) {
-    __extends(Restaurant, _super);
-    function Restaurant(lId, lName, lCity, lZip, lAdress, rType, rPhone, rWww) {
-        var _this = _super.call(this, lId, lName, lCity, lZip, lAdress) || this;
+var myRestaurant = /** @class */ (function (_super) {
+    __extends(myRestaurant, _super);
+    function myRestaurant(lId, lName, lCity, lZip, lAdress, lPicUrl, rType, rPhone, rWww) {
+        var _this = _super.call(this, lId, lName, lCity, lZip, lAdress, lPicUrl) || this;
         _this.rType = rType;
         _this.rPhone = rPhone;
         _this.rWww = rWww;
         return _this;
     }
-    Restaurant.prototype.displayR = function () {
+    myRestaurant.prototype.displayR = function () {
         return this.rPhone + " " + this.rWww;
     };
-    return Restaurant;
+    return myRestaurant;
 }(MyLocation));
 var myEvent = /** @class */ (function (_super) {
     __extends(myEvent, _super);
-    function myEvent(lId, lName, lCity, lZip, lAdress, eDate, ePrice) {
-        var _this = _super.call(this, lId, lName, lCity, lZip, lAdress) || this;
+    function myEvent(lId, lName, lCity, lZip, lAdress, lPicUrl, eDate, ePrice) {
+        var _this = _super.call(this, lId, lName, lCity, lZip, lAdress, lPicUrl) || this;
         _this.eDate = eDate;
         _this.ePrice = ePrice;
         return _this;
@@ -61,13 +65,12 @@ var myEvent = /** @class */ (function (_super) {
     };
     return myEvent;
 }(MyLocation));
-var blogLocation1 = new MyLocation(1, "Prater", "Vienna", 1020, "Praterstern");
-var blogLocation2 = new Restaurant(2, "Cactus2", "Vienna", 1100, "Reumanplatz", "Wiener Küche", "01/5837920", "www.cactus2.at");
-var blogLocation3 = new myEvent(3, "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "Dec 31, 2019 12:00:00", 50);
-var blogLocation4 = new myEvent(4, "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "Dec 31, 2019 23:59:59", 50);
+var blogLocation1 = new MyLocation(1, "Prater", "Vienna", 1020, "Praterstern", "bild.jpg");
+var blogLocation2 = new myRestaurant(2, "Cactus2", "Vienna", 1100, "Reumanplatz", "bild.jpg", "Wiener Küche", "01/5837920", "www.cactus2.at");
+var blogLocation3 = new myEvent(3, "silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
+var blogLocation4 = new myEvent(4, "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
 var locationArray = [];
 locationArray.push(blogLocation1);
 locationArray.push(blogLocation2);
 locationArray.push(blogLocation3);
 locationArray.push(blogLocation4);
-console.log(locationArray);

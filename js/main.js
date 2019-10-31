@@ -1,5 +1,5 @@
 siteBuilder();
-
+addPlaces();
 //-------------------------------------------Site Builder---------------------------------------------------
 function siteBuilder(){
 	$("title").text("Travel blog");
@@ -19,12 +19,51 @@ function siteBuilder(){
 					</header>
 		`);
 	$("body").append(`<main><div id="maincontent" class="container"></div></main>`);
+			$("#maincontent").append(`
+
+			`)
 	$("body").append(`<footer>&copy;</footer>`);
 }
 //---------------------------------------End Site Builder---------------------------------------------------
 
 
-function test(mystring1){
-	$("body").append(`<div>${mystring1}</div>`);
+	$("#maincontent").append(`<div>${blogLocation2.display()} ${blogLocation2.displayR()} </div>`);
+	$("#maincontent").append(`<div>${blogLocation3.display()} ${blogLocation3.displayHTML()}</div>`);
+	$("#maincontent").append(`<div>${blogLocation4.display()} ${blogLocation4.timeUntilE()}</div>`);
 
+
+function addPlaces(){
+	$("body").append(`<form class="w-50">
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="inF1" placeholder="Location Name">
+						  </div>
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="inF2" placeholder="City">
+						  </div>
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="inF3" placeholder="Zip Code">
+						  </div>
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="inF4" placeholder="Adress">
+						  </div>
+						  <div class="form-group">
+						    <input type="text" class="form-control" id="inF5" placeholder="Picture URL">
+						  </div>
+						  <p class="newBtn btn btn-primary">eintragen</p>
+						</form>
+	`);
+
+	$(".newBtn").on("click",function(e){
+		var blogLocationX = new MyLocation(locationArray.length+1,$("#inF1").val() , $("#inF2").val() , $("#inF3").val() , $("#inF4").val() , $("#inF5").val());
+		locationArray.push(blogLocationX);
+		listLocation();
+	});
+
+};
+function listLocation(){
+	$("#maincontent").empty();
+	for (item of locationArray){
+		$("#maincontent").append(`<div>${item.display()}</div>`);
+
+	}
 }
