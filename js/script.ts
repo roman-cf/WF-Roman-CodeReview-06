@@ -1,3 +1,4 @@
+
 class MyLocation {
 	lId:number;
 	lName:string;
@@ -16,17 +17,17 @@ class MyLocation {
 	}
 
 	display(){
-		return this.lName + " in " + this.lCity;
+		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+				<div class="card-img-overlay offset-md-8 offset-lg-8">
+					<p id="loc`+this.lId+`" class=" btn btn-secondary">Location only</p>
+				</div>
+				<div class="card-body d-flex flex-column">
+					<h4 class="card-title">`+ this.lName +`</h4>
+					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+				</div>
+				`;
 	}
-
-	displayAddress(){
-		return `<p>`+ this.lAdress + ` in ` + this.lZip + `  ` + this.lCity + `</p>`;
-	}
-	displayIMG(){
-		return`<img src="img/`+this.lPicUrl+`" width="150px" alt="`+this.lName+`" class="d-none d-sm-block">`;
-	}
-
-}
+};
 
 class myRestaurant extends MyLocation{
 	rType:string;
@@ -39,13 +40,16 @@ class myRestaurant extends MyLocation{
 		this.rPhone = rPhone;
 		this.rWww = rWww;
 	}
-	displayContact(){
-		return this.rPhone + " " + this.rWww;
-	}
 	display(){
-		return this.lName + " in " + this.lCity + " www." + this.rWww;
+		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+				<div class="card-body d-flex flex-column">
+					<h4 class="card-title">`+ this.lName +`</h4>
+					<p class="card-text mt-auto">our kitchen: `+ this.rType + `</p>
+					<p class="card-text mt-auto">&phone;`+ this.rPhone + ` in <br><a class="btn btn-dark" href="https://www.` + this.rWww + `">our website</a></p>
+					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+				</div>
+				`;
 	}
-
 }
 
 class myEvent extends MyLocation{
@@ -58,22 +62,33 @@ class myEvent extends MyLocation{
 		this.ePrice = ePrice;
 	}
 
-	timeUntilE(){
+	display(){
 			let x = this.eDate.toString();
 			let zielDatum = new Date(x);
 			let startZeit = zielDatum.getTime();
 		    let newDate = new Date();
 		    let jetzt = newDate.getTime();
 		    let spanne = Math.round((startZeit-jetzt)/1000);
-		    let d = Math.floor(spanne/(24*60*60)); 	    
-	    return  "noch "+ d+" Tage";
+		    var	d = Math.floor(spanne/(24*60*60)); 	        		
+
+		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+				<div class="card-img-overlay offset-8 offset-md-8 offset-lg-8">
+					<p id="eve`+this.lId+`" class=" badge badge-warning">in <b>`+d+`</b> days</p>
+				</div>
+				<div class="card-body d-flex flex-column">
+					<h4 class="card-title">`+ this.lName +`</h4>
+					<p class="card-text mt-auto">Date: `+ this.eDate + ` <br> Pirce: ` + this.ePrice + `€</p>
+					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+				</div>
+				`;
 	}
 }
 
-var blogLocation1 = new MyLocation(1,"Prater","Vienna",1020, "Praterstern","bild.jpg");
-var blogLocation2 = new myRestaurant(2,"Cactus2","Vienna",1100, "Reumanplatz","bild.jpg", "Wiener Küche", "01/5837920", "www.cactus2.at")
-var blogLocation3 = new myEvent(3,"silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43","bild.jpg","Dec 31, 2019 23:59:59", 50)
-var blogLocation4 = new myEvent(4,"silvesterparty", "Vienna", 1120, "Wurmbstrasse 36","bild.jpg","Dec 31, 2019 23:59:59", 50)
+
+var blogLocation1 = new MyLocation("loc1","Prater","Vienna",1020, "Praterstern","bild.jpg");
+var blogLocation2 = new myRestaurant("res2","Cactus2","Vienna",1100, "Reumanplatz","bild.jpg", "Wiener Küche", "01/5837920", "cactus2.at")
+var blogLocation3 = new myEvent("eve3","silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43","bild.jpg","Dec 31, 2019 23:59:59", 50)
+var blogLocation4 = new myEvent("eve4","silvesterparty", "Vienna", 1120, "Wurmbstrasse 36","bild.jpg","Dec 31, 2019 23:59:59", 50)
 
 
 var locationArray = [];

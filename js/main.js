@@ -29,9 +29,16 @@ function siteBuilder(){
 //---------------------------------------End Site Builder---------------------------------------------------
 
 
-
+//---------------------------------------Adding Places---------------------------------------------------
 function addPlaces(){
-	$("#maincontent").append(`<form class="w-50">
+	$("#maincontent").append(`<form class=" container ">
+							<h3> add a new Place</h3>
+							<ul class="nav nav-tabs">
+							    <li><p class="btn btn-light" data-toggle="tab" href="#">Location only</p></li>
+							    <li><p class="btn btn-light" data-toggle="tab" href="#eventinput">Events</p></li>
+							    <li><p class="btn btn-light" data-toggle="tab" href="#restinput">Restaurant</p></li>
+							</ul>
+
 						  <div class="form-group">
 						    <input type="text" class="form-control" id="inF1" placeholder="Location Name">
 						  </div>
@@ -47,28 +54,47 @@ function addPlaces(){
 						  <div class="form-group">
 						    <input type="text" class="form-control" id="inF5" placeholder="Picture URL">
 						  </div>
-						  <p class="newBtn btn btn-primary">eintragen</p>
+
+						<div class="tab-content">
+							<div id="eventinput" class="class="tab-pane fade"">	
+								<div class="form-group">
+							   		<input type="text" class="form-control" id="inF6" placeholder="Date">
+								</div>
+								<div class="form-group">
+					   				<input type="text" class="form-control" id="inF7" placeholder="Price">
+								</div>
+							</div>
+							<div id="restinput" class="class="tab-pane fade"">	
+								<div class="form-group">
+							   		<input type="text" class="form-control" id="inF6" placeholder="Restauranttype">
+								</div>
+								<div class="form-group">
+					   				<input type="text" class="form-control" id="inF7" placeholder="www">
+								</div>
+							</div>
+						</div>
+
+							<p class="newBtn btn btn-primary">eintragen</p>
+
 						</form>
 	`);
 
 	$(".newBtn").on("click",function(e){
 		var blogLocationX = new MyLocation(locationArray.length+1,$("#inF1").val() , $("#inF2").val() , $("#inF3").val() , $("#inF4").val() , $("#inF5").val());
 		locationArray.push(blogLocationX);
+		$(".form-control").val("");
 		listLocation();
 	});
-
 };
+
+//---------------------------------------list all Locations--------------------------------------------------
 function listLocation(){
 	$("#showLocation").empty();
 	for (item of locationArray){
-		$("#showLocation").append(`<div id="card${item.lId}" class="col-lg-3 col-md-6 col-sm-12 " style="width: 18rem;"">
-										<h3>${item.display()}</h3>
-										${item.displayIMG()}${item.displayAddress()}
-								</div>`);
-
+		$("#showLocation").append(`<div id="card${item.lId}" class="col-lg-4 col-md-6 col-sm-12 mb-3" style="width: 28rem;"">
+										<div class="card h-100">
+											${item.display()}
+										</div>
+									</div>`);
 	}
-
-	$("#showLocation").append(`<div>${blogLocation2.display()} ${blogLocation2.displayAddress()} </div>`);
-	$("#showLocation").append(`<div>${blogLocation4.display()} ${blogLocation4.timeUntilE()}</div>`);
-
 }

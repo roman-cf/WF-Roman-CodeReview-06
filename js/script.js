@@ -21,16 +21,11 @@ var MyLocation = /** @class */ (function () {
         this.lPicUrl = lPicUrl;
     }
     MyLocation.prototype.display = function () {
-        return this.lName + " in " + this.lCity;
-    };
-    MyLocation.prototype.displayAddress = function () {
-        return "<p>" + this.lAdress + " in " + this.lZip + "  " + this.lCity + "</p>";
-    };
-    MyLocation.prototype.displayIMG = function () {
-        return "<img src=\"img/" + this.lPicUrl + "\" width=\"150px\" alt=\"" + this.lName + "\" class=\"d-none d-sm-block\">";
+        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-img-overlay offset-md-8 offset-lg-8\">\n\t\t\t\t\t<p id=\"loc" + this.lId + "\" class=\" btn btn-secondary\">Location only</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return MyLocation;
 }());
+;
 var myRestaurant = /** @class */ (function (_super) {
     __extends(myRestaurant, _super);
     function myRestaurant(lId, lName, lCity, lZip, lAdress, lPicUrl, rType, rPhone, rWww) {
@@ -40,11 +35,8 @@ var myRestaurant = /** @class */ (function (_super) {
         _this.rWww = rWww;
         return _this;
     }
-    myRestaurant.prototype.displayContact = function () {
-        return this.rPhone + " " + this.rWww;
-    };
     myRestaurant.prototype.display = function () {
-        return this.lName + " in " + this.lCity + " www." + this.rWww;
+        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto\">our kitchen: " + this.rType + "</p>\n\t\t\t\t\t<p class=\"card-text mt-auto\">&phone;" + this.rPhone + " in <br><a class=\"btn btn-dark\" href=\"https://www." + this.rWww + "\">our website</a></p>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return myRestaurant;
 }(MyLocation));
@@ -56,7 +48,7 @@ var myEvent = /** @class */ (function (_super) {
         _this.ePrice = ePrice;
         return _this;
     }
-    myEvent.prototype.timeUntilE = function () {
+    myEvent.prototype.display = function () {
         var x = this.eDate.toString();
         var zielDatum = new Date(x);
         var startZeit = zielDatum.getTime();
@@ -64,14 +56,14 @@ var myEvent = /** @class */ (function (_super) {
         var jetzt = newDate.getTime();
         var spanne = Math.round((startZeit - jetzt) / 1000);
         var d = Math.floor(spanne / (24 * 60 * 60));
-        return "noch " + d + " Tage";
+        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-img-overlay offset-8 offset-md-8 offset-lg-8\">\n\t\t\t\t\t<p id=\"eve" + this.lId + "\" class=\" badge badge-warning\">in <b>" + d + "</b> days</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto\">Date: " + this.eDate + " <br> Pirce: " + this.ePrice + "\u20AC</p>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return myEvent;
 }(MyLocation));
-var blogLocation1 = new MyLocation(1, "Prater", "Vienna", 1020, "Praterstern", "bild.jpg");
-var blogLocation2 = new myRestaurant(2, "Cactus2", "Vienna", 1100, "Reumanplatz", "bild.jpg", "Wiener Küche", "01/5837920", "www.cactus2.at");
-var blogLocation3 = new myEvent(3, "silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
-var blogLocation4 = new myEvent(4, "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
+var blogLocation1 = new MyLocation("loc1", "Prater", "Vienna", 1020, "Praterstern", "bild.jpg");
+var blogLocation2 = new myRestaurant("res2", "Cactus2", "Vienna", 1100, "Reumanplatz", "bild.jpg", "Wiener Küche", "01/5837920", "cactus2.at");
+var blogLocation3 = new myEvent("eve3", "silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
+var blogLocation4 = new myEvent("eve4", "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
 var locationArray = [];
 locationArray.push(blogLocation1);
 locationArray.push(blogLocation2);
