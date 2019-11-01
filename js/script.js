@@ -27,7 +27,7 @@ var MyLocation = /** @class */ (function () {
         return "<p>" + this.lAdress + " in " + this.lZip + "  " + this.lCity + "</p>";
     };
     MyLocation.prototype.displayIMG = function () {
-        return "<img src=\"img/" + this.lPicUrl + "\" width=\"150px\" alt=\"" + this.lName + "\">";
+        return "<img src=\"img/" + this.lPicUrl + "\" width=\"150px\" alt=\"" + this.lName + "\" class=\"d-none d-sm-block\">";
     };
     return MyLocation;
 }());
@@ -42,6 +42,9 @@ var myRestaurant = /** @class */ (function (_super) {
     }
     myRestaurant.prototype.displayContact = function () {
         return this.rPhone + " " + this.rWww;
+    };
+    myRestaurant.prototype.display = function () {
+        return this.lName + " in " + this.lCity + " www." + this.rWww;
     };
     return myRestaurant;
 }(MyLocation));

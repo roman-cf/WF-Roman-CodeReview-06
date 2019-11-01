@@ -1,5 +1,6 @@
 siteBuilder();
 addPlaces();
+listLocation();
 //-------------------------------------------Site Builder---------------------------------------------------
 function siteBuilder(){
 	$("title").text("Travel blog");
@@ -18,21 +19,19 @@ function siteBuilder(){
 						</nav>	
 					</header>
 		`);
-	$("body").append(`<main><div id="maincontent" class="container"></div></main>`);
-			$("#maincontent").append(`
-
-			`)
+	$("body").append(`<main id="maincontent" class="container"></main>`);
+	$("#maincontent").append(`
+					<div id="showLocation" class="container row d-flex">
+					</div>
+	`)
 	$("body").append(`<footer>&copy;</footer>`);
 }
 //---------------------------------------End Site Builder---------------------------------------------------
 
 
-	$("#maincontent").append(`<div>${blogLocation2.display()} ${blogLocation2.displayAddress()} </div>`);
-	$("#maincontent").append(`<div>${blogLocation4.display()} ${blogLocation4.timeUntilE()}</div>`);
-
 
 function addPlaces(){
-	$("body").append(`<form class="w-50">
+	$("#maincontent").append(`<form class="w-50">
 						  <div class="form-group">
 						    <input type="text" class="form-control" id="inF1" placeholder="Location Name">
 						  </div>
@@ -60,9 +59,16 @@ function addPlaces(){
 
 };
 function listLocation(){
-	$("#maincontent").empty();
+	$("#showLocation").empty();
 	for (item of locationArray){
-		$("#maincontent").append(`<div><h3>${item.display()}</h3>${item.displayIMG()}${item.displayAddress()}</div>`);
+		$("#showLocation").append(`<div id="card${item.lId}" class="col-lg-3 col-md-6 col-sm-12 " style="width: 18rem;"">
+										<h3>${item.display()}</h3>
+										${item.displayIMG()}${item.displayAddress()}
+								</div>`);
 
 	}
+
+	$("#showLocation").append(`<div>${blogLocation2.display()} ${blogLocation2.displayAddress()} </div>`);
+	$("#showLocation").append(`<div>${blogLocation4.display()} ${blogLocation4.timeUntilE()}</div>`);
+
 }

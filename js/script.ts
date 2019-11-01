@@ -23,7 +23,7 @@ class MyLocation {
 		return `<p>`+ this.lAdress + ` in ` + this.lZip + `  ` + this.lCity + `</p>`;
 	}
 	displayIMG(){
-		return`<img src="img/`+this.lPicUrl+`" width="150px" alt="`+this.lName+`">`;
+		return`<img src="img/`+this.lPicUrl+`" width="150px" alt="`+this.lName+`" class="d-none d-sm-block">`;
 	}
 
 }
@@ -42,6 +42,10 @@ class myRestaurant extends MyLocation{
 	displayContact(){
 		return this.rPhone + " " + this.rWww;
 	}
+	display(){
+		return this.lName + " in " + this.lCity + " www." + this.rWww;
+	}
+
 }
 
 class myEvent extends MyLocation{
