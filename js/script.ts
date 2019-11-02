@@ -97,17 +97,16 @@ class myEvent extends MyLocation{
 var blogLocation1 = new MyLocation("loc1","Prater","Vienna",1020, "Praterstern","WIENbilder-WTV-Riesenrad-im-Prater-01282.jpg");
 var blogLocation2 = new myRestaurant("res2","Cactus","Vienna",1100, "Pernerstorfergasse 9","cactus2.jpg", "Wiener Küche", "01/5837920", "cactus2.at")
 var blogLocation3 = new myEvent("eve3","Silvester in Innsbruck", "Innsbruck", 5120, "Amrasserstrasse 43","bild.jpg","Dec 31, 2019 23:59:59", 50)
-var blogLocation4 = new myEvent("eve4","Silvesterparty", "Vienna", 1120, "Wurmbstrasse 36","bild.jpg","Dec 31, 2019 23:59:59", 50)
+var blogLocation4 = new myEvent("eve4","Silvesterparty", "Vienna", 1120, "Wurmbstrasse 36","Silvester-Feuerwerk-in-Wien-iStock-900581042.jpg","Dec 31, 2019 23:59:59", 50)
 var blogLocation5 = new myRestaurant("res5","Yumi","Vienna",1040, "Naschmarkt Stand 87","yumi.jpg", "Asiatische Küche", " 01/5855996", "yumi.eatbu.com")
 var blogLocation6 = new myRestaurant("res6","Santo Spirito","Vienna",1010, "Kumpfgasse 7,","20161223-225628-largejpg.jpg", "Italienische Küche", "01/5129998", "santospirito.at")
 var blogLocation7 = new myEvent("eve7","Märklin Moderne", "Vienna", 1070, "Andreasgasse 7","maerklinmoderne.jpg","Mar 11, 2020 00:00:00", 10.50)
+var blogLocation8 = new MyLocation("loc8","Semmering", "Semmering", "2680", "7","20-schilling-blick-am-semmering.jpeg")
+
+
 
 var locationArray = [];
-	locationArray.push(blogLocation1);
-	locationArray.push(blogLocation2);
-	locationArray.push(blogLocation3);
-	locationArray.push(blogLocation4);
-	locationArray.push(blogLocation5);
-	locationArray.push(blogLocation6);
-	locationArray.push(blogLocation7);
+for (let i=1; i<9;i++){
+	locationArray.push(window["blogLocation"+i])
+}
 
