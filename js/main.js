@@ -1,4 +1,4 @@
-var typeArray = [["loc","res","eve"],["Location","Restaurant","Event"]];
+var typeArray = [["loc","res","eve"],["Location only","Restaurants","Events"]];
 
 siteBuilder();
 addPlaces();
@@ -35,11 +35,7 @@ function siteBuilder(){
 function addPlaces(){
 	$("#maincontent").append(`<form class=" container ">
 							<h3> add a new Place</h3>
-							<ul class="nav nav-tabs">
-							    <li><p class="btn btn-light" data-toggle="tab" href="#">Location only</p></li>
-							    <li><p class="btn btn-light" data-toggle="tab" href="#eventinput">Events</p></li>
-							    <li><p class="btn btn-light" data-toggle="tab" href="#restinput">Restaurant</p></li>
-							</ul>
+							<ul class="addLocList nav nav-tabs"></ul>
 
 						  <div class="form-group">
 						    <input type="text" class="form-control" id="inF1" placeholder="Location Name">
@@ -58,7 +54,7 @@ function addPlaces(){
 						  </div>
 
 						<div class="tab-content">
-							<div id="eventinput" class="class="tab-pane fade"">	
+							<div id="eve" class="tab-pane fade"">	
 								<div class="form-group">
 							   		<input type="text" class="form-control" id="inF6" placeholder="Date">
 								</div>
@@ -66,7 +62,7 @@ function addPlaces(){
 					   				<input type="text" class="form-control" id="inF7" placeholder="Price">
 								</div>
 							</div>
-							<div id="restinput" class="class="tab-pane fade"">	
+							<div id="res" class="tab-pane fade"">	
 								<div class="form-group">
 							   		<input type="text" class="form-control" id="inF6" placeholder="Restauranttype">
 								</div>
@@ -87,6 +83,9 @@ function addPlaces(){
 		$(".form-control").val("");
 		listLocation();
 	});
+	for(i=0; i<typeArray[0].length; i++){
+	$(".addLocList").append(`<li><p class="btn btn-light" data-toggle="tab" href="#`+typeArray[0][i]+`">`+typeArray[1][i]+`</p></li>`);
+	}
 };
 
 //---------------------------------------list all Locations--------------------------------------------------

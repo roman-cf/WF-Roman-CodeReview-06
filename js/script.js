@@ -61,11 +61,15 @@ var myEvent = /** @class */ (function (_super) {
     return myEvent;
 }(MyLocation));
 var blogLocation1 = new MyLocation("loc1", "Prater", "Vienna", 1020, "Praterstern", "bild.jpg");
-var blogLocation2 = new myRestaurant("res2", "Cactus2", "Vienna", 1100, "Reumanplatz", "bild.jpg", "Wiener Küche", "01/5837920", "cactus2.at");
+var blogLocation2 = new myRestaurant("res2", "Cactus", "Vienna", 1100, "Pernerstorfergasse 9", "cactus2.jpg", "Wiener Küche", "01/5837920", "cactus2.at");
 var blogLocation3 = new myEvent("eve3", "silvesterparty", "Innsbruck", 5120, "Amrasserstrasse 43", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
 var blogLocation4 = new myEvent("eve4", "silvesterparty", "Vienna", 1120, "Wurmbstrasse 36", "bild.jpg", "Dec 31, 2019 23:59:59", 50);
+var blogLocation5 = new myRestaurant("res5", "Yumi", "Vienna", 1040, "Naschmarkt Stand 87", "yumi.jpg", "Asiatische Küche", " 01/5855996", "yumi.eatbu.com");
+var blogLocation6 = new myRestaurant("res6", "Santo Spirito", "Vienna", 1010, "Kumpfgasse 7,", "20161223-225628-largejpg.jpg", "Italienische Küche", "01/5129998", "santospirito.at");
 var locationArray = [];
 locationArray.push(blogLocation1);
 locationArray.push(blogLocation2);
 locationArray.push(blogLocation3);
 locationArray.push(blogLocation4);
+locationArray.push(blogLocation5);
+locationArray.push(blogLocation6);
