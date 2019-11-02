@@ -21,7 +21,7 @@ var MyLocation = /** @class */ (function () {
         this.lPicUrl = lPicUrl;
     }
     MyLocation.prototype.display = function () {
-        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-img-overlay offset-md-8 offset-lg-8\">\n\t\t\t\t\t<p id=\"loc" + this.lId + "\" class=\" btn btn-secondary\">Location only</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
+        return "\n\t\t\t\t<div class=\"card h-100\">\n\t\t\t\t\t<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t\t<div class=\"card-img-overlay offset-md-8 offset-lg-8\">\n\t\t\t\t\t\t<p id=\"loc" + this.lId + "\" class=\" btn btn-secondary\">Location only</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return MyLocation;
 }());
@@ -36,7 +36,7 @@ var myRestaurant = /** @class */ (function (_super) {
         return _this;
     }
     myRestaurant.prototype.display = function () {
-        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto\">our kitchen: " + this.rType + "</p>\n\t\t\t\t\t<p class=\"card-text mt-auto\">&phone;" + this.rPhone + " in <br><a class=\"btn btn-dark\" href=\"https://www." + this.rWww + "\">our website</a></p>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
+        return "\n\t\t\t\t<div class=\"card h-100\">\n\t\t\t\t\t<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t\t<p class=\"card-text mt-auto\">our kitchen: " + this.rType + "</p>\n\t\t\t\t\t\t<p class=\"card-text mt-auto\">&phone;" + this.rPhone + " in <br><a class=\"btn btn-dark\" href=\"https://www." + this.rWww + "\">our website</a></p>\n\t\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return myRestaurant;
 }(MyLocation));
@@ -56,7 +56,7 @@ var myEvent = /** @class */ (function (_super) {
         var jetzt = newDate.getTime();
         var spanne = Math.round((startZeit - jetzt) / 1000);
         var d = Math.floor(spanne / (24 * 60 * 60));
-        return "<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t<div class=\"card-img-overlay offset-8 offset-md-8 offset-lg-8\">\n\t\t\t\t\t<p id=\"eve" + this.lId + "\" class=\" badge badge-warning\">in <b>" + d + "</b> days</p>\n\t\t\t\t</div>\n\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t<p class=\"card-text mt-auto\">Date: " + this.eDate + " <br> Pirce: " + this.ePrice + "\u20AC</p>\n\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t</div>\n\t\t\t\t";
+        return "\n\t\t\t\t<div class=\"card h-100\">\n\t\t\t\t\t<img class=\"card-img-top d-none d-sm-block\"  src=\"img/" + this.lPicUrl + " \" alt=\"Card image\"> \n\t\t\t\t\t<div class=\"card-img-overlay offset-8 offset-md-8 offset-lg-8\">\n\t\t\t\t\t\t<p id=\"eve" + this.lId + "\" class=\" badge badge-warning\">in <b>" + d + "</b> days</p>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"card-body d-flex flex-column\">\n\t\t\t\t\t\t<h4 class=\"card-title\">" + this.lName + "</h4>\n\t\t\t\t\t\t<p class=\"card-text mt-auto\">Date: " + this.eDate + " <br> Pirce: " + this.ePrice + "\u20AC</p>\n\t\t\t\t\t\t<p class=\"card-text mt-auto small\">" + this.lAdress + " in <br> " + this.lZip + "  " + this.lCity + "</p>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t\t";
     };
     return myEvent;
 }(MyLocation));

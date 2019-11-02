@@ -1,3 +1,5 @@
+var typeArray = [["loc","res","eve"],["Location","Restaurant","Event"]];
+
 siteBuilder();
 addPlaces();
 listLocation();
@@ -88,13 +90,17 @@ function addPlaces(){
 };
 
 //---------------------------------------list all Locations--------------------------------------------------
+
 function listLocation(){
 	$("#showLocation").empty();
-	for (item of locationArray){
-		$("#showLocation").append(`<div id="card${item.lId}" class="col-lg-4 col-md-6 col-sm-12 mb-3" style="width: 28rem;"">
-										<div class="card h-100">
-											${item.display()}
-										</div>
-									</div>`);
+	for(i=0; i<typeArray[0].length; i++){
+		$("#showLocation").append(`<h2>`+typeArray[1][i]+`</h2>`);
+		for (item of locationArray){
+			if((item.lId).slice(0,3) == typeArray[0][i]){
+				$("#showLocation").append(`	<div id="card${item.lId}" class="col-lg-4 col-md-6 col-sm-12 mb-3" style="width: 28rem;"">
+												${item.display()}
+											</div>`);
+			}
+		}
 	}
 }

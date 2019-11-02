@@ -17,13 +17,16 @@ class MyLocation {
 	}
 
 	display(){
-		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
-				<div class="card-img-overlay offset-md-8 offset-lg-8">
-					<p id="loc`+this.lId+`" class=" btn btn-secondary">Location only</p>
-				</div>
-				<div class="card-body d-flex flex-column">
-					<h4 class="card-title">`+ this.lName +`</h4>
-					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+		return `
+				<div class="card h-100">
+					<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+					<div class="card-img-overlay offset-md-8 offset-lg-8">
+						<p id="loc`+this.lId+`" class=" btn btn-secondary">Location only</p>
+					</div>
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title">`+ this.lName +`</h4>
+						<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+					</div>
 				</div>
 				`;
 	}
@@ -41,12 +44,15 @@ class myRestaurant extends MyLocation{
 		this.rWww = rWww;
 	}
 	display(){
-		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
-				<div class="card-body d-flex flex-column">
-					<h4 class="card-title">`+ this.lName +`</h4>
-					<p class="card-text mt-auto">our kitchen: `+ this.rType + `</p>
-					<p class="card-text mt-auto">&phone;`+ this.rPhone + ` in <br><a class="btn btn-dark" href="https://www.` + this.rWww + `">our website</a></p>
-					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+		return `
+				<div class="card h-100">
+					<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title">`+ this.lName +`</h4>
+						<p class="card-text mt-auto">our kitchen: `+ this.rType + `</p>
+						<p class="card-text mt-auto">&phone;`+ this.rPhone + ` in <br><a class="btn btn-dark" href="https://www.` + this.rWww + `">our website</a></p>
+						<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+					</div>
 				</div>
 				`;
 	}
@@ -71,14 +77,17 @@ class myEvent extends MyLocation{
 		    let spanne = Math.round((startZeit-jetzt)/1000);
 		    var	d = Math.floor(spanne/(24*60*60)); 	        		
 
-		return `<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
-				<div class="card-img-overlay offset-8 offset-md-8 offset-lg-8">
-					<p id="eve`+this.lId+`" class=" badge badge-warning">in <b>`+d+`</b> days</p>
-				</div>
-				<div class="card-body d-flex flex-column">
-					<h4 class="card-title">`+ this.lName +`</h4>
-					<p class="card-text mt-auto">Date: `+ this.eDate + ` <br> Pirce: ` + this.ePrice + `€</p>
-					<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+		return `
+				<div class="card h-100">
+					<img class="card-img-top d-none d-sm-block"  src="img/`+ this.lPicUrl +` " alt="Card image"> 
+					<div class="card-img-overlay offset-8 offset-md-8 offset-lg-8">
+						<p id="eve`+this.lId+`" class=" badge badge-warning">in <b>`+d+`</b> days</p>
+					</div>
+					<div class="card-body d-flex flex-column">
+						<h4 class="card-title">`+ this.lName +`</h4>
+						<p class="card-text mt-auto">Date: `+ this.eDate + ` <br> Pirce: ` + this.ePrice + `€</p>
+						<p class="card-text mt-auto small">`+ this.lAdress + ` in <br> ` + this.lZip + `  ` + this.lCity +`</p>
+					</div>
 				</div>
 				`;
 	}
