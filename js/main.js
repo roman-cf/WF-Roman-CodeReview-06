@@ -53,7 +53,7 @@ function addPlaces(){
 						    <input type="text" class="form-control" id="inF5" placeholder="Picture URL">
 						  </div>
 
-						<div class="tab-content">
+						<div  id="loc" class="tab-content">
 							<div id="eve" class="tab-pane fade"">	
 								<div class="form-group">
 							   		<input type="text" class="form-control" id="inF6" placeholder="Date">

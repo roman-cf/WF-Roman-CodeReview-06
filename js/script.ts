@@ -101,7 +101,7 @@ var blogLocation4 = new myEvent("eve4","Silvesterparty", "Vienna", 1120, "Wurmbs
 var blogLocation5 = new myRestaurant("res5","Yumi","Vienna",1040, "Naschmarkt Stand 87","yumi.jpg", "Asiatische Küche", " 01/5855996", "yumi.eatbu.com")
 var blogLocation6 = new myRestaurant("res6","Santo Spirito","Vienna",1010, "Kumpfgasse 7,","20161223-225628-largejpg.jpg", "Italienische Küche", "01/5129998", "santospirito.at")
 var blogLocation7 = new myEvent("eve7","Märklin Moderne", "Vienna", 1070, "Andreasgasse 7","maerklinmoderne.jpg","Mar 11, 2020 00:00:00", 10.50)
-var blogLocation8 = new MyLocation("loc8","Semmering", "Semmering", "2680", "7","20-schilling-blick-am-semmering.jpeg")
+var blogLocation8 = new MyLocation("loc8","Semmering", "Semmering", "2680", "Urlaub","20-schilling-blick-am-semmering.jpeg")
 
 
 
